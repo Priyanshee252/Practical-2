@@ -181,6 +181,10 @@ footer p{
 
 @media (max-width:768px){
 
+    body{
+        padding-top: 220px;
+    }
+
     header{
         height: auto;
     }
