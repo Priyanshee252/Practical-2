@@ -4,11 +4,18 @@
     padding: 0;
 }
 
+html{
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body{
     font-family: 'Segoe UI', Arial, sans-serif;
     color: #333;
     line-height: 1.7;
     background-color: #f8fafc;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header{
@@ -16,6 +23,7 @@ header{
     color: white;
     padding: 20px 20px 10px;
     text-align: center;
+    width: 100%;
 }
 
 header h1{
@@ -63,6 +71,7 @@ nav ul li a:hover{
     color: white;
     text-align: center;
     padding: 60px 20px;
+    margin: 15px -20px -10px -20px;
 }
 
 .welcome h2{
@@ -177,6 +186,36 @@ section#about p{
     font-size: 16px;
 }
 
+.careers-details{
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    color: #444;
+    font-size: 16px;
+}
+
+.job-roles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.job{
+    background-color: white;
+    color: #0f172a;
+    padding: 10px 18px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #e2e8f0;
+}
+
+.job:hover{
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .event{
     background-color: white;
     padding: 20px 25px;
@@ -233,4 +272,61 @@ footer{
     text-align: center;
     padding: 20px;
     font-size: 15px;
+}
+
+@media (max-width: 992px){
+    .lab-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .program-card{
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px){
+    header h1{
+        font-size: 24px;
+    }
+
+    .welcome h2{
+        font-size: 26px;
+    }
+
+    .welcome p{
+        font-size: 15px;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 5px 0;
+    }
+
+    .lab-grid{
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
+
+    .lab-card{
+        width: 100%;
+    }
+
+    .programs-grid{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .program-card{
+        width: 90%;
+    }
+
+    .job{
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .event{
+        flex-direction: column;
+        text-align: center;
+    }
 }
