@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEasy</title>
+<style>
+  * { 
+     margin: 0; 
+     padding: 0; 
+     box-sizing: border-box;
+    }
+  body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    color: #eaeaea; 
+    background-color: #121212; 
+   }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: #1c1c1c;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .nav h2 { color: #ffb703; }
+  .nav input {
+    padding: 8px 14px;
+    width: 250px;
+    border: none;
+    border-radius: 20px;
+  }
+  .nav .cart { color: #eaeaea; font-size: 20px; }
+
+  .main {
+    text-align: center;
+    padding: 70px 20px 50px 20px;
+  }
+  .main h1 { font-size: 34px; color: #ffb703; margin-bottom: 12px; }
+  .main p { color: #b0b0b0; margin-bottom: 22px; }
+  .main button {
+    background-color: #ffb703;
+    color: #121212;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+  .main button:hover {
+    background-color: #ffa000;
+    transform: scale(1.05);
+  }
+
+  .sector {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    padding: 0 40px 50px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .sector-main {
+    grid-row: span 2;
+    background-color: #7209b7;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .sector-small {
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+  }
+  .sector-small.a { background-color: #e63946; }
+  .sector-small.b { background-color: #2a9d8f; }
+
+  .categories-heading {
+    text-align: center;
+    padding: 20px 20px 5px 20px;
+    color: #ffb703;
+  }
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 0 40px;
+  }
+  .cat-icon {
+    background-color: #1c1c1c;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+  .cat-icon div { font-size: 26px; margin-bottom: 8px; }
+
+  .products-heading {
+    text-align: center;
+    padding: 20px 20px 5px 20px;
+    color: #ffb703;
+  }
+  .products {
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .product-row {
+    display: flex;
+    align-items: center;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .product-icon {
+    width: 90px;
+    height: 90px;
+    background-color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+  }
+  .product-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .product-info h4 { font-size: 15px; }
+  .product-info .price { color: #ffb703; font-weight: bold; }
+  .product-info button {
+    background-color: #ffb703;
+    color: #121212;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+  .product-info button:hover {
+    background-color: #ffa000;
+    transform: scale(1.05);
+  }
+
+  .testimonials-heading {
+    text-align: center;
+    padding: 20px 20px 5px 20px;
+    color: #ffb703;
+  }
+  .testimonials {
+    display: flex;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 0 40px;
+    flex-wrap: wrap;
+  }
+  .quote-box {
+    flex: 1 1 250px;
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #cccccc;
+  }
+  .quote-box .name { margin-top: 12px; color: #ffb703; font-size: 13px; font-weight: bold; }
+
+  footer {
+    background-color: #1c1c1c;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .categories { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .navbar { flex-direction: column; }
+    .navbar input { width: 100%; }
+    .bento { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .bento-main { grid-row: auto; }
+    .categories { grid-template-columns: repeat(2, 1fr); }
+    .product-row { flex-direction: column; }
+    .product-info { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav">
+    <h2>ShopEasy</h2>
+    <input type="text" placeholder="Search products...">
+    <div class="cart">🛒</div>
+  </div>
+
+  <div class="main">
+    <h1>Big Festive Sale</h1>
+    <p>Up to 50% off on electronics, fashion, and home essentials.</p>
+    <button>Shop Now</button>
+  </div>
+
+  <div class="sector">
+    <div class="sector-main">
+      <h3>Mega Deal Week</h3>
+      <p>Save big across every category</p>
+    </div>
+    <div class="sector-small a">Free Shipping ₹499+</div>
+    <div class="sector-small b">New Arrivals Weekly</div>
+  </div>
+
+  <h2 class="categories-heading">Shop by Category</h2>
+  <div class="categories">
+    <div class="cat-icon"><div>📱</div>Electronics</div>
+    <div class="cat-icon"><div>👕</div>Fashion</div>
+    <div class="cat-icon"><div>🏠</div>Home</div>
+    <div class="cat-icon"><div>⚽</div>Sports</div>
+    <div class="cat-icon"><div>💄</div>Beauty</div>
+  </div>
+
+  <h2 class="products-heading" id="products">Featured Products</h2>
+  <div class="products">
+    <div class="product-row">
+      <div class="product-icon">🎧</div>
+      <div class="product-info">
+        <h4>Wireless Headphones</h4>
+        <span class="price">₹1,499</span>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-icon">⌚</div>
+      <div class="product-info">
+        <h4>Smart Watch  </h4>
+        <span class="price">₹2,299</span>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-icon">👟</div>
+      <div class="product-info">
+        <h4>Running Shoes  </h4>
+        <span class="price">₹1,899</span>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-icon">🎒</div>
+      <div class="product-info">
+        <h4>Travel Backpack  </h4>
+        <span class="price">₹1,199</span>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="testimonials-heading">What Customers Say</h2>
+  <div class="testimonials">
+    <div class="quote-box">
+      "Fast delivery and great quality products. Will shop again!"
+      <div class="name">- Priya S.</div>
+    </div>
+    <div class="quote-box">
+      "Prices are very reasonable and the app is easy to use."
+      <div class="name">- Rahul M.</div>
+    </div>
+    <div class="quote-box">
+      "Customer support helped me quickly with my order."
+      <div class="name">- Neha K.</div>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 ShopEasy. All rights reserved.</footer>
+
+</body>
+</html>

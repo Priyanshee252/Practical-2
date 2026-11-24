@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Hospital</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #263238; background-color: #ffffff; }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-bottom: 2px solid #005f9e;
+    flex-wrap: wrap;
+  }
+  .nav h2 { color: #005f9e; }
+  .nav ul { list-style: none; display: flex; gap: 22px; }
+  .nav ul li a { text-decoration: none; color: #263238; font-size: 15px; }
+  .nav ul li a:hover { color: #005f9e; }
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 40px;
+    background-color: #eaf3fb;
+    flex-wrap: wrap;
+  }
+  .main-sector1 { flex: 1 1 350px; }
+  .main-sector1 h1 { font-size: 34px; color: #003f6b; margin-bottom: 14px; }
+  .main-sector1 p { color: #4a5a66; margin-bottom: 20px; max-width: 420px; }
+  .main-sector1 a {
+    background-color: #005f9e;
+    color: white;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .main-sector2 {
+    flex: 1 1 300px;
+    background-color: white;
+    border-left: 5px solid #005f9e;
+    padding: 25px;
+  }
+  .main-sector2 table { width: 100%; border-collapse: collapse; }
+  .main-sector2 table td { padding: 8px 0; font-size: 14px; }
+  .main-sector2 table td:first-child { color: #005f9e; font-weight: bold; width: 40%; }
+
+  .section-heading {
+    border-left: 5px solid #005f9e;
+    padding-left: 15px;
+    margin: 55px 40px 25px 40px;
+  }
+  .section-heading h2 { font-size: 24px; color: #003f6b; }
+
+  .departments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 40px 20px 40px;
+  }
+  .dept-card {
+    background-color: #eaf3fb;
+    padding: 20px;
+    border-radius: 6px;
+    border-top: 3px solid #005f9e;
+  }
+  .dept-card h3 { color: #003f6b; margin-bottom: 8px; font-size: 17px; }
+  .dept-card p { font-size: 13px; color: #4a5a66; }
+
+  .doctor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 20px 0;
+  }
+  .doctor-table th {
+    background-color: #005f9e;
+    color: white;
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  .doctor-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+  }
+  .doctor-table tr:nth-child(even) { background-color: #f7faf7; }
+
+  .emergency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #e8461e;
+    color: white;
+    padding: 35px 20px;
+    margin-top: 55px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .emergency .icon { font-size: 40px; }
+
+  .contact {
+    text-align: center;
+    padding: 0 40px 60px 40px;
+  }
+  .contact p { margin-bottom: 10px; font-size: 15px; }
+
+  footer {
+    background-color: #003f6b;
+    color: #d6e9f7;
+    text-align: center;
+    padding: 18px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    .doctor-table { font-size: 13px; }
+    .departments { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .navbar { flex-direction: column; gap: 12px; text-align: center; }
+    .navbar ul { flex-direction: column; gap: 8px; }
+    .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+    .hero-left p { margin-left: auto; margin-right: auto; }
+    .section-heading { margin: 40px 20px 20px 20px; }
+    .departments { grid-template-columns: 1fr; padding: 0 20px 20px 20px; }
+    .doctor-table { font-size: 12px; }
+    .doctor-table th, .doctor-table td { padding: 8px; }
+    .contact { padding: 0 20px 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav">
+    <h2>City Hospital</h2>
+    <ul>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="#doctors">Doctors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="main-sector1">
+      <h1>Care You Can Trust</h1>
+      <p>City Hospital brings expert doctors and modern facilities together, with emergency support available every day of the year.</p>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <div class="main-sector2">
+      <table>
+        <tr><td>OPD Timing</td><td>9 AM - 6 PM, Mon-Sat</td></tr>
+        <tr><td>Emergency</td><td>Open 24/7</td></tr>
+        <tr><td>Phone</td><td>98765-43210</td></tr>
+        <tr><td>Location</td><td>Anand, Gujarat</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-heading" id="departments">
+    <h2>Departments</h2>
+  </div>
+  <div class="departments">
+    <div class="dept-card"><h3>Cardiology</h3><p>Heart care and diagnostics.</p></div>
+    <div class="dept-card"><h3>Neurology</h3><p>Brain and nerve treatment.</p></div>
+    <div class="dept-card"><h3>Pediatrics</h3><p>Care for infants and children.</p></div>
+    <div class="dept-card"><h3>Orthopedics</h3><p>Bone and joint treatment.</p></div>
+    <div class="dept-card"><h3>General Medicine</h3><p>Routine checkup and treatment.</p></div>
+    <div class="dept-card"><h3>Dental Care</h3><p>Complete dental treatment.</p></div>
+  </div>
+
+  <div class="section-heading" id="doctors">
+    <h2>Our Doctors</h2>
+  </div>
+  <table class="doctor-table">
+    <tr><th>Name</th><th>Specialization</th><th>Available</th></tr>
+    <tr><td>Dr. Rina Patel</td><td>Cardiologist</td><td>Mon - Fri</td></tr>
+    <tr><td>Dr. Amit Shah</td><td>Neurologist</td><td>Mon, Wed, Fri</td></tr>
+    <tr><td>Dr. Kavita Mehta</td><td>Pediatrician</td><td>Everyday</td></tr>
+    <tr><td>Dr. Vikram Joshi</td><td>Orthopedic Surgeon</td><td>Tue - Sat</td></tr>
+  </table>
+
+  <div class="emergency">
+    <div class="icon">🚑</div>
+    <div>
+      <h2>24/7 Emergency Services</h2>
+      <p>Call us anytime: 108 / 98765-43210</p>
+    </div>
+  </div>
+
+  <div class="section-heading" id="contact">
+    <h2>Contact Us</h2>
+  </div>
+  <div class="contact">
+    <p>📧 Email: info@cityhospital.com</p>
+    <p>📞 Phone: 98765-43210</p>
+  </div>
+
+  <footer>&copy; 2026 City Hospital. All rights reserved.</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary Health Care</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(136, 172, 254);
+            width: 100%;
+            color: aliceblue;
+        }
+
+        header{
+            text-align: center;
+            background-color: rgb(1, 1, 92);
+            width: 100%;
+            padding: ;
+        }
+
+        header h1{
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome To Our Health Care Center</h1>
+        <p>Your Health, Our Priority</p>
+
+        <nav>
+            <ul>
+                <li><a href="departments">Departments</a></li>
+                <li><a href="doctors">Doctors</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="departments">
+            <h2>Speciality We Offers</h2>
+            <ul>
+                <li>Intensive Care Unit (ICU)</li>
+                <li>Cardiology</li>
+                <li>Orthopaedics</li>
+                <li>Neurology</li>
+                <li>Physiotherapy</li>
+            </ul>
+        </section>
+
+        <section id="doctors">
+            <h2>Our Specialist Doctors</h2>
+            <div class="doctor">
+                <h4>Dr. Satish Patel</h4>
+                <p>Cardiologist</p>
+            </div>
+            <div class="doctor">
+                <h4>Dr. Pritesh Merja</h4>
+                <p>Physiotherapist</p>
+            </div>
+            <div class="doctor">
+                <h4>Dr. Brijesh Patel</h4>
+                <p>Neurologist</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Emergency Service</h2>
+            <p>Contact Our 24/7 Helpline : <strong>108/1800-123-4567</strong></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="cont">
+                <p>Email : <strong><a href="info@primaryhealthcare.com">info@primaryhealthcare.com</a></strong></p>
+                <p>Phone : <strong><a href="96328 57421">96328 57421</a></strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Primary Health Care | All Rights Reserved</p>
+    </footer>
+</body>
+</html> -->
